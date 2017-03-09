@@ -9,7 +9,7 @@
 | 3.  | Simran Agarwal | 1410110414  |
 
 ## ToDo
-- [ ] Implement string matching using Finite Automata as given in Cormen book pg. no. 995. 
+- [ ] Implement string matching using Finite Automata as given in Cormen book pg. no. 995.
         - [x] Take pattern as an input
         - [x] Construct transition table using the algorithm
         - [ ] Take a string as an input from user and see whether the pattern exists or not using the transition table created in first step.
