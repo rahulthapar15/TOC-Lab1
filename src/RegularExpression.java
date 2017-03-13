@@ -8,7 +8,12 @@ import java.util.regex.Pattern;
 public class RegularExpression {
     public static void main(String[] args) {
 
-        int return_val=0;
+        int multiline_flag=0;
+        int singleline_flag=0;
+        int email_flag=0;
+        int url_flag=0;
+        int headerfile_flag=0;
+
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the string : ");
@@ -16,22 +21,36 @@ public class RegularExpression {
 
         string = sc.nextLine();
 
-        // Testing for a multiline comment
-       return_val = findMultilineComment(string);
-        if (return_val==1){
-            System.out.println("It is a regular expression : Multiline Comment");
-        }else{
-            System.out.println("It is not a regular expression");
+        multiline_flag = findMultilineComment(string);
+        singleline_flag = findSinglelineComment(string);
+        email_flag = findEmail(string);
+        url_flag = findURL(string);
+        headerfile_flag = findHeaderfile(string);
+
+
+        if (multiline_flag==1){
+            System.out.println("Multiline Comment found");
+        }else
+        if (singleline_flag==1){
+            System.out.println("Single Line Comment found");
+        }else
+        if (email_flag==1){
+            System.out.println("Email found");
+        }else
+        if (url_flag==1){
+            System.out.println("URL found");
+        }else
+        if (headerfile_flag==1){
+            System.out.println("Header file found");
+        }else {
+            System.out.println("Nothing found");
         }
 
         /*Scanner sc = new Scanner(System.in);
         String string;
-
         System.out.println("Enter String  : ");
         string = sc.nextLine();
-
         System.out.println("String : " + string);
-
         boolean isRegex;
         try {
             Pattern.compile(string);
@@ -39,29 +58,61 @@ public class RegularExpression {
         } catch (PatternSyntaxException e) {
             isRegex = false;
         }
-
         if(isRegex){
             System.out.println("It is a regular expression");
         }else{
             System.out.println("It is not a regular expression");
+        }*/
+
+    }
+
+    private static int findHeaderfile(String string) {
+        Pattern regex = Pattern.compile("",Pattern.DOTALL);
+        Matcher regexMatcher = regex.matcher(string);
+        if (regexMatcher.find()){
+            return 1;
+        }else{
+            return 0;
         }
-*/
+    }
+
+    private static int findURL(String string) {
+        Pattern regex = Pattern.compile("(https|http)://\\w{3}.*",Pattern.DOTALL);
+        Matcher regexMatcher = regex.matcher(string);
+        if (regexMatcher.find()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    private static int findEmail(String string) {
+        Pattern regex = Pattern.compile("[\\w.]+@\\w+\\.[com|net|edu|in]",Pattern.DOTALL);
+        Matcher regexMatcher = regex.matcher(string);
+        if (regexMatcher.find()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    private static int findSinglelineComment(String string) {
+        Pattern regex = Pattern.compile("[^:]//.*",Pattern.DOTALL);
+        Matcher regexMatcher = regex.matcher(string);
+        if (regexMatcher.find()){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     private static int findMultilineComment(String string) {
-
-        String matchedComment = null;
-        Pattern regex = Pattern.compile("/\\*.*?\\*/",Pattern.DOTALL);
+        Pattern regex = Pattern.compile("/\\*.*\\*/",Pattern.DOTALL);
         Matcher regexMatcher = regex.matcher(string);
         if (regexMatcher.find()){
-            matchedComment = regexMatcher.group();
-           // System.out.println("Macthed Comment :" + matchedComment);
             return 1;
         }else{
-           // System.out.println("Not a regular expression");
             return 0;
         }
-
-
     }
 }
