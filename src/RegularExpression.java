@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class RegularExpression {
     public static void main(String[] args) {
 
-
+        int return_val=0;
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the string : ");
@@ -17,7 +17,12 @@ public class RegularExpression {
         string = sc.nextLine();
 
         // Testing for a multiline comment
-        findMultilineComment(string);
+       return_val = findMultilineComment(string);
+        if (return_val==1){
+            System.out.println("It is a regular expression : Multiline Comment");
+        }else{
+            System.out.println("It is not a regular expression");
+        }
 
         /*Scanner sc = new Scanner(System.in);
         String string;
@@ -43,16 +48,18 @@ public class RegularExpression {
 */
     }
 
-    private static void findMultilineComment(String string) {
+    private static int findMultilineComment(String string) {
 
         String matchedComment = null;
         Pattern regex = Pattern.compile("/\\*.*?\\*/",Pattern.DOTALL);
         Matcher regexMatcher = regex.matcher(string);
         if (regexMatcher.find()){
             matchedComment = regexMatcher.group();
-            System.out.println("Macthed Comment :" + matchedComment);
+           // System.out.println("Macthed Comment :" + matchedComment);
+            return 1;
         }else{
-            System.out.println("Not a regular expression");
+           // System.out.println("Not a regular expression");
+            return 0;
         }
 
 
