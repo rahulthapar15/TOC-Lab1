@@ -53,7 +53,7 @@ public class JavaApplication11 {
          
         System.out.println("You have inserted: Rs." + sum );
         System.out.println("**************************************************");
-        System.out.println("States entered are: ");
+        System.out.println("Outputs according to states entered are: ");
         for(i=0;i<=n;i++){
            System.out.println(output[i]);        
         }
