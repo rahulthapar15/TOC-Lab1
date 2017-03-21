@@ -67,7 +67,7 @@ public class RegularExpression {
     }
 
     private static int findHeaderfile(String string) {
-        Pattern regex = Pattern.compile("",Pattern.DOTALL);
+        Pattern regex = Pattern.compile("#\\w{7} ?<?\"?\\w*.h>?\"?",Pattern.DOTALL);
         Matcher regexMatcher = regex.matcher(string);
         if (regexMatcher.find()){
             return 1;
@@ -77,7 +77,7 @@ public class RegularExpression {
     }
 
     private static int findURL(String string) {
-        Pattern regex = Pattern.compile("(https|http)://\\w{3}.*",Pattern.DOTALL);
+        Pattern regex = Pattern.compile("(www|https|http).?:?/?/?.*",Pattern.DOTALL);
         Matcher regexMatcher = regex.matcher(string);
         if (regexMatcher.find()){
             return 1;
