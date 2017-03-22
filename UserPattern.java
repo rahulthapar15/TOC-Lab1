@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package automata1;
 
 /**
@@ -111,7 +106,7 @@ public UserPattern()
 
     /*
      * This function builds the Transition  table which represents Finite Automata for a
-     * given pattern tern
+     * given pattern
      */
     public static void computeTransition (char[] pattern , int M, int[][] Transition )
     {
