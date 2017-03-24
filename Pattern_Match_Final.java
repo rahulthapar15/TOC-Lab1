@@ -1,4 +1,4 @@
-/* program to find a substring within a string*/
+/* program to match pattern within a string*/
 import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +17,7 @@ public class Pattern_Match_Final extends JFrame
 	private JButton buttonLogin = new JButton("Search");
 
 
-
+/* searches for the pattern in the string*/
 public Pattern_Match_Final()
 {
 
