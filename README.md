@@ -41,5 +41,4 @@
 - Simulate any one embedded system (Vending Machine, Washing Machine or Microwave)using moore or mealy machine. :+1:
 	- [x] Implement the algorithm
 	- [x] Integrate GUI
----
 	
